@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intro EF", "Intro EF\Intro EF.csproj", "{1A8F5E3B-6DD9-4DFF-B3B2-2BCC1F54C614}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A8F5E3B-6DD9-4DFF-B3B2-2BCC1F54C614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8F5E3B-6DD9-4DFF-B3B2-2BCC1F54C614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8F5E3B-6DD9-4DFF-B3B2-2BCC1F54C614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8F5E3B-6DD9-4DFF-B3B2-2BCC1F54C614}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
