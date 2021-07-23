@@ -15,6 +15,8 @@ namespace Intro_EF.Controllers
         [HttpGet("Test")] // http://localhost/api/Prueba/Test
         public string TestBD()
         {
+            // Cómo trabajar con "C" de CRUD: Create - Read - Update - Delete
+            
             // Cómo utilizar el contexto y lo demás desde la BD
             var bd = new EfContext(); // Llamamos al contexto
             
