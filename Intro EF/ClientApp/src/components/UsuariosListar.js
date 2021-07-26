@@ -23,14 +23,20 @@ const UsuariosListar = () => {
     
     const handleCambiarNombre = async() => {
         let id = 2
-        let nuevoUsername = 'calvon'
+        let nuevoUsername = 'calvonn'
         
-        let respuesta = await axios.post('https://localhost:44393/api/Usuarios/Update', {
-            id: id,
-            newName: nuevoUsername
-        })
-        
-        alert('Se han enviado los datos!')
+        let respuesta = await axios({
+            url: 'https://localhost:44393/api/Usuarios/Update',
+            method: 'post',
+            data: {
+                id: id,
+                newName: nuevoUsername
+            }
+        }).then(resultado => {
+            alert('Se han enviado los datos!')
+        }).catch(error => {
+            alert('Error al enviar!')
+        })                                              
     }
     
     return (

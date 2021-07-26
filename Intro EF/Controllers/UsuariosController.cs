@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Intro_EF.Models; // Modelos desde la bd (Usuario - Venta)
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace Intro_EF.Controllers
 {
@@ -74,10 +76,17 @@ namespace Intro_EF.Controllers
         }
 
         [HttpPost("Update")] // https://localhost:44393/api/Usuarios/Update
-        public string Actualizar([FromHeader]int id, [FromHeader]string newName)
+        public string Actualizar([FromBody] JsonElement cuerpo)
         {
+            // Serializar: Convertir un objecto a un string JSON
+            // Deserializar: Convertir un string JSON a un objeto
+            string textoConvertido = JsonSerializer.Serialize(cuerpo);
+            dynamic data = JObject.Parse(textoConvertido);
+
             using (var bd = new EfContext())
             {
+                int id = data.id;
+                string newName = data.newName;
                 var usuario = bd.Usuarios.FirstOrDefault(x => x.id == id);
                 usuario.username = newName;
                 bd.Usuarios.Update(usuario);
@@ -87,5 +96,10 @@ namespace Intro_EF.Controllers
             return "Ok!";
         }
         
+        [HttpPost("TestPost")] // https://localhost:44393/api/Usuarios/TestPost
+        public string TestPost([FromQuery] string nombre)
+        {
+            return $"Hola {nombre}!";
+        }
     }
 }
